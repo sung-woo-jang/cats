@@ -17,13 +17,10 @@ export class CatsService {
   async uploadImg(cat: Cat, files: Express.Multer.File[]) {
     const fileName = `cats/${files[0].filename}`;
 
-    console.log(fileName);
-
     const newCat = await this.catsRepository.findByIdAndUpdateImg(
       cat.id,
       fileName,
     );
-    // console.log(newCat);
     return newCat;
   }
 
