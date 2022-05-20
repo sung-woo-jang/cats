@@ -3,7 +3,11 @@ import { ApiProperty } from '@nestjs/swagger';
 import { IsEmail, IsNotEmpty, IsString } from 'class-validator';
 import { Document } from 'mongoose';
 
-const options: SchemaOptions = { timestamps: true };
+const options: SchemaOptions = {
+  // collection:'cats' 이렇게 선언할 수도 있지만 생략하면
+  // 클래스명 + s로 자동생성됨
+  timestamps: true,
+};
 
 @Schema(options)
 export class Cat extends Document {
